@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Blog | {{ config.title }}{% endblock %}
+
+{% block content %}
+<h1>Blog</h1>
+
+{% for page in paginator.pages %}
+<article class="post-preview">
+  <h2><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+  <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+  {% if page.taxonomies.categories %}
+  <span class="categories">
+    {% for cat in page.taxonomies.categories %}
+    <a href="/categories/{{ cat | slugify }}">{{ cat }}</a>
+    {% endfor %}
+  </span>
+  {% endif %}
+  {% if page.summary %}
+  <p>{{ page.summary | safe }}</p>
+  {% endif %}
+</article>
+{% endfor %}
+
+{% if paginator %}
+<nav class="pagination">
+  {% if paginator.previous %}
+  <a href="{{ paginator.previous }}">&larr; Newer</a>
+  {% endif %}
+  {% if paginator.next %}
+  <a href="{{ paginator.next }}">Older &rarr;</a>
+  {% endif %}
+</nav>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+base_url = "https://michelletilley.net"
+title = "Michelle Tilley"
+description = "Personal blog"
+default_language = "en"
+compile_sass = true
+minify_html = true
+generate_feeds = true
+feed_filenames = ["rss.xml"]
+
+
+[[taxonomies]]
+name = "categories"
+feed = true
+
+[extra]
+author = "Michelle Tilley"
