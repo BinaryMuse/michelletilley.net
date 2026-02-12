@@ -1,0 +1,6 @@
+<div class="message from-agent">
+  <span class="sender">{{ name | default(value="Agent") }}</span>
+  <div class="bubble">
+    {{ body | markdown | safe }}
+  </div>
+</div>
