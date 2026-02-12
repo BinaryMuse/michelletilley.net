@@ -22,6 +22,7 @@ external_links_no_follow = true
 external_links_external = true
 smart_punctuation = false
 bottom_footnotes = true
+insert_anchor_links = "left"
 
 [markdown.highlighting]
 error_on_missing_language = false

@@ -805,10 +805,15 @@ button:focus-visible {
   border-top: 1px solid var(--color-border-subtle);
 }
 
-.footnote-reference + .footnote-reference {
-  &::before {
-    content: ', ';
-  }
+// Small space after footnote refs (fallback without JS)
+.footnote-reference {
+  margin-right: 0.1em;
+}
+
+// JS adds .adjacent class to truly adjacent footnotes (no text between)
+.footnote-reference.adjacent::before {
+  content: ',';
+  margin-right: 0.15em;
 }
 
 // --------------------------------------------
