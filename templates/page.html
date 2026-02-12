@@ -1,34 +1,36 @@
-{% extends "base.html" %}
-
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
-
-{% block description %}{{ page.summary | default(value=config.description) | striptags | truncate(length=160) }}{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %}{{ page.title }} | {{ config.title
+}}{% endblock %} {% block description %}{{ page.summary |
+default(value=config.description) | striptags | truncate(length=160) }}{%
+endblock %} {% block content %}
 <article class="post">
   <header class="post-header">
     <h1>{{ page.title }}</h1>
-    <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+    <time datetime="{{ page.date }}"
+      >{{ page.date | date(format="%B %d, %Y") }}</time
+    >
     {% if page.taxonomies.categories %}
     <span class="categories">
       {% for cat in page.taxonomies.categories %}
       <a href="/categories/{{ cat | slugify }}">{{ cat }}</a>
       {% endfor %}
     </span>
+    {% endif %} {% if page.description %}
+    <p style="margin-top: var(--space-sm)">{{ page.description | safe }}</p>
     {% endif %}
   </header>
 
-  <div class="post-content">
-    {{ page.content | safe }}
-  </div>
+  <div class="post-content">{{ page.content | safe }}</div>
 </article>
 
 <nav class="post-nav">
   {% if page.earlier %}
-  <a href="{{ page.earlier.permalink }}" class="prev">&larr; {{ page.earlier.title }}</a>
-  {% endif %}
-  {% if page.later %}
-  <a href="{{ page.later.permalink }}" class="next">{{ page.later.title }} &rarr;</a>
+  <a href="{{ page.earlier.permalink }}" class="prev"
+    >&larr; {{ page.earlier.title }}</a
+  >
+  {% endif %} {% if page.later %}
+  <a href="{{ page.later.permalink }}" class="next"
+    >{{ page.later.title }} &rarr;</a
+  >
   {% endif %}
 </nav>
 {% endblock %}
