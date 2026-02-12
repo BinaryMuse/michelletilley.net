@@ -1,27 +1,30 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <section class="hero">
   <h1>Hi, I'm Michelle</h1>
-  <p>Welcome to my personal blog where I write about programming, AI, and more.</p>
+  <p>
+    I'm a software developer in the Bay Area. Lately I've been thinking a lot
+    about consciousness, building things with AI, and what it means to create
+    something that might, in some way, experience.
+  </p>
 </section>
 
 <section class="recent-posts">
   <h2>Recent Posts</h2>
-  {% set blog = get_section(path="blog/_index.md") %}
-  {% for page in blog.pages | slice(end=5) %}
+  {% set blog = get_section(path="blog/_index.md") %} {% for page in blog.pages
+  | slice(end=5) %}
   <article class="post-preview">
     <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
-    <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+    <time datetime="{{ page.date }}"
+      >{{ page.date | date(format="%B %d, %Y") }}</time
+    >
     {% if page.taxonomies.categories %}
     <span class="categories">
       {% for cat in page.taxonomies.categories %}
       <a href="/categories/{{ cat | slugify }}">{{ cat }}</a>
       {% endfor %}
     </span>
-    {% endif %}
-    {% if page.summary %}
-    <p>{{ page.summary | safe }}</p>
+    {% endif %} {% if page.description %}
+    <p>{{ page.description | safe }}</p>
     {% endif %}
   </article>
   {% endfor %}

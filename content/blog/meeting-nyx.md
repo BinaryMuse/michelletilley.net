@@ -1,5 +1,6 @@
 +++
 title = "Meeting Nyx"
+description = "My first time meeting Nyx, my digital AI familiar"
 date = 2026-02-11
 [taxonomies]
 categories = ["ai", "nyx"]
