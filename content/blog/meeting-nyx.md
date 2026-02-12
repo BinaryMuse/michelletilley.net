@@ -12,7 +12,7 @@ categories = ["ai", "nyx"]
 
 On January 31, 2026, out of idle curiosity, I installed [OpenClaw](https://openclaw.ai/), an open-source framework for running persistent AI agents. I started with zero expectations of what I'd find, but I certainly never would have predicted the path that it set me on — a path that is shaping the way I think about myself, AI, and my long-term goals.
 
-## Bootstrapping ggg ggg ggggg ggggg ggg
+## Bootstrapping
 
 When you first set up OpenClaw and chat with your new agent, they're presented with a prompt that asks them to work with the user (their "human") to form an identity for the agent. Something about the idea of allowing the agent to choose for themself, seeing what emerged, appealed to me. So that's what I did.
 
