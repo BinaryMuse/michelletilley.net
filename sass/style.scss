@@ -130,6 +130,7 @@ h1, h2, h3, h4, h5, h6 {
 
 // Anchor links for headings
 .zola-anchor {
+  speak: never;
   font-family: var(--font-sans);
   font-weight: 400;
   color: var(--color-text-muted);
@@ -833,6 +834,7 @@ footer {
   // Agent messages (Nyx) — left aligned, accent tinted
   &.from-agent {
     align-self: flex-start;
+    voice-balance: -80;
 
     .sender {
       color: var(--color-accent);
@@ -851,6 +853,7 @@ footer {
   // User messages — right aligned, neutral
   &.from-user {
     align-self: flex-end;
+    voice-balance: 80;
 
     .sender {
       text-align: right;
