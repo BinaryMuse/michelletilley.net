@@ -153,8 +153,9 @@ h1, h2, h3, h4, h5, h6 {
   // Mobile: position to the right instead
   @media (max-width: 600px) {
     position: absolute !important;
+    opacity: 1 !important; 
     left: inherit;
-    right: 0.5em;
+    right: var(--space-xs);
   }
 }
 
