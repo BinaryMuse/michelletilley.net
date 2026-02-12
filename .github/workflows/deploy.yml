@@ -23,7 +23,7 @@ jobs:
       - name: Build with Zola
         uses: getzola/github-pages@v1
         with:
-          version: "0.22.1"
+          version: "v0.22.1"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
