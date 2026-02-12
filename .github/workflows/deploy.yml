@@ -25,11 +25,6 @@ jobs:
         with:
           zola_version: "v0.22.1"
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
-
   deploy:
     environment:
       name: github-pages
