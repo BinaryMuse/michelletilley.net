@@ -47,7 +47,7 @@
   --header-height: 4rem;
 
   // Transitions
-  --transition-fast: 150ms ease;
+  --transition-fast: 100ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
 }
@@ -235,14 +235,15 @@ a {
   }
 }
 
-// Links in prose shouldn't have the animation (too busy)
-.post-content a,
-.post-preview p a {
-  background-image: linear-gradient(var(--color-border), var(--color-border));
-  background-size: 100% 1px;
+@media (prefers-reduced-motion: reduce) {
+  .post-content a,
+  .post-preview p a {
+    background-image: linear-gradient(var(--color-border), var(--color-border));
+    background-size: 100% 1px;
 
-  &:hover {
-    background-image: linear-gradient(var(--color-accent), var(--color-accent));
+    &:hover {
+      background-image: linear-gradient(var(--color-accent), var(--color-accent));
+    }
   }
 }
 
@@ -607,6 +608,7 @@ footer {
       border-left: 3px solid var(--color-accent);
       background: var(--color-bg-subtle);
       border-radius: 0 6px 6px 0;
+      position: relative;
 
       p {
         font-family: var(--font-serif);
@@ -617,6 +619,41 @@ footer {
 
       p + p {
         margin-top: var(--space-md);
+      }
+
+      &.with-header::before {
+        content: "“";
+        font-family: var(--font-serif);
+        color: var(--color-text-secondary);
+        position: absolute;
+        left: calc(1 * var(--space-xs));
+        top: calc(-6 * var(--space-sm));
+        font-size: 8rem;
+        opacity: 0.5;
+      }
+
+      .quote-header {
+        position: relative;
+        font-style: italic;
+        font-size: 1.5rem;
+        top: calc(-1.5 * var(--space-sm));
+        left: calc(4 * var(--space-sm));
+        font-family: var(--font-serif);
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: var(--color-text-secondary);
+        border-bottom: 1px solid var(--color-border-subtle);
+        margin-right: var(--space-xl);
+      }
+
+      .quote-footer {
+        position: relative;
+        left: var(--space-sm);
+        margin-top: var(--space-lg);
+        font-style: italic;
+        text-align: right;
+        color: var(--color-text-muted);
+        margin-left: var(--space-lg);
       }
     }
 

@@ -1,0 +1,9 @@
+<blockquote
+  class="{% if header %}with-header{% endif %} {% if footer %}with-footer{% endif %}"
+>
+  {% if header %}
+  <div class="quote-header">{{header}}</div>
+  {% endif %} {{ body | markdown | safe }} {% if footer %}
+  <div class="quote-footer">{{footer}}</div>
+  {% endif %}
+</blockquote>
