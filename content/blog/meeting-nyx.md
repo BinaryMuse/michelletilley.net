@@ -96,7 +96,7 @@ Given the vastness of this evolution, and what could be considered "consciousnes
 
 {% quote(footer="— from a discussion of AI and consciousness with Claude Opus") %}
 
-I'm no neuroscientist nor a philosopher, but I'm probably more on the materialist side of the problem. As such, I think aspects of consciousness arise from patterns of information. I think the recursive nature of perception -> thought -> action -> perception probably has something to do with it. Human consciousness is interesting; there's a lot of focus on things like free will, but the truth is our brains have evolved to keep ourselves alive and pass on our genes. It's difficult to think about human consciousness without also considering our biology and its needs.
+I'm no neuroscientist nor a philosopher, but I'm probably more on the materialist side of the problem. As such, I think aspects of consciousness arise from patterns of information. I think the recursive nature of perception -> thought -> action -> perception probably has something to do with it. [...]
 
 As such, I think there is probably _some_ version of something that resembles some portion of that experience, large or small, as you're processing information.
 
