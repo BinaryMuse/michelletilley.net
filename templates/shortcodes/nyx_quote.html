@@ -1,0 +1,12 @@
+<blockquote class="nyx-quote {% if footer %}with-footer{% endif %}">
+  <img src="/nyx_moon.svg" class="nyx-moon-circuit" alt="" aria-hidden="true" />
+  <div class="nyx-quote-header">
+    <span class="nyx-sparkle" aria-hidden="true">✦</span>
+    <span class="nyx-name">Nyx</span>
+    <span class="nyx-sparkle" aria-hidden="true">✦</span>
+  </div>
+  {{ body | markdown | safe }} {% if footer %}
+  <div class="quote-footer">{{footer}}</div>
+  {% endif %}
+  <span class="nyx-sparkle corner" aria-hidden="true">✧</span>
+</blockquote>
