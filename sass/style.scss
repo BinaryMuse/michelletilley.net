@@ -828,6 +828,30 @@ footer {
       }
     }
 
+    // Nyx series navigation note
+    .nyx-series {
+      margin: var(--space-lg) 0;
+      padding: var(--space-md);
+      background: var(--color-bg-subtle);
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+
+      p {
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      a {
+        color: var(--color-text-secondary);
+
+        &:hover {
+          color: var(--color-accent);
+        }
+      }
+    }
+
     // Horizontal rule / section break
     hr {
       border: none;
