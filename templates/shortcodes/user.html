@@ -1,6 +1,4 @@
 <div class="message from-user">
-  <span class="sender">{{ name | default(value="You") }}</span>
-  <div class="bubble">
-    {{ body | markdown | safe }}
-  </div>
+  <span class="sender">{{ name | default(value="Michelle") }}</span>
+  <div class="bubble">{{ body | markdown | safe }}</div>
 </div>
