@@ -946,6 +946,10 @@ footer {
         color: var(--color-text-muted);
         padding-right: var(--space-lg);
       }
+
+      & + p {
+        margin-top: var(--space-2xl);
+      }
     }
 
     // Nyx series navigation note
