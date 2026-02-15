@@ -72,6 +72,135 @@
           localStorage.setItem('theme', newTheme);
         });
       })();
+
+      // Footnote popups (progressive enhancement)
+      (function() {
+        var popup = null;
+        var currentReference = null;
+
+        function createPopup() {
+          if (popup) return popup;
+
+          popup = document.createElement('div');
+          popup.className = 'footnote-popup';
+          popup.innerHTML = '<button class="footnote-close" aria-label="Close">&times;</button><div class="footnote-content"></div>';
+          document.body.appendChild(popup);
+
+          popup.querySelector('.footnote-close').addEventListener('click', closePopup);
+
+          return popup;
+        }
+
+        function positionPopup(referenceEl) {
+          var rect = referenceEl.getBoundingClientRect();
+          var popupRect = popup.getBoundingClientRect();
+
+          var left = rect.left + (rect.width / 2) - 30;
+          var top = rect.bottom + window.scrollY + 10;
+
+          // Adjust if popup would go off-screen
+          if (left + popupRect.width > window.innerWidth - 20) {
+            left = window.innerWidth - popupRect.width - 20;
+          }
+          if (left < 20) {
+            left = 20;
+          }
+
+          popup.style.left = left + 'px';
+          popup.style.top = top + 'px';
+        }
+
+        function showPopup(referenceEl, footnoteId) {
+          var footnoteEl = document.getElementById(footnoteId);
+          if (!footnoteEl) return;
+
+          createPopup();
+
+          // Clone the footnote content (excluding the back reference)
+          var content = footnoteEl.cloneNode(true);
+          var backRef = content.querySelector('.footnote-backref');
+          if (backRef) backRef.remove();
+
+          var contentDiv = popup.querySelector('.footnote-content');
+          contentDiv.innerHTML = '';
+          contentDiv.appendChild(content);
+
+          currentReference = referenceEl;
+          positionPopup(referenceEl);
+
+          // Show popup after a brief delay to ensure positioning
+          setTimeout(function() {
+            popup.classList.add('visible');
+          }, 10);
+        }
+
+        function closePopup() {
+          if (!popup) return;
+          popup.classList.remove('visible');
+          currentReference = null;
+        }
+
+        // Handle clicks on footnote references
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          // Check if we clicked a link inside a footnote reference
+          var footnoteRef = null;
+          if (target.tagName === 'A' && target.parentElement &&
+              target.parentElement.classList.contains('footnote-reference')) {
+            e.preventDefault();
+            footnoteRef = target.parentElement;
+            var href = target.getAttribute('href');
+            if (href && href.startsWith('#')) {
+              var footnoteId = href.substring(1);
+              showPopup(footnoteRef, footnoteId);
+            }
+            return;
+          }
+
+          // Check if we clicked the sup directly
+          if (target.classList && target.classList.contains('footnote-reference')) {
+            e.preventDefault();
+            var link = target.querySelector('a');
+            if (link) {
+              var href = link.getAttribute('href');
+              if (href && href.startsWith('#')) {
+                var footnoteId = href.substring(1);
+                showPopup(target, footnoteId);
+              }
+            }
+            return;
+          }
+
+          // Close popup if clicking outside
+          if (popup && popup.classList.contains('visible')) {
+            if (!popup.contains(target) && target !== currentReference) {
+              closePopup();
+            }
+          }
+        });
+
+        // Close popup on Escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && popup && popup.classList.contains('visible')) {
+            closePopup();
+          }
+        });
+
+        // Reposition on scroll/resize
+        var repositionTimeout;
+        function handleReposition() {
+          if (popup && popup.classList.contains('visible') && currentReference) {
+            clearTimeout(repositionTimeout);
+            repositionTimeout = setTimeout(function() {
+              positionPopup(currentReference);
+            }, 10);
+          }
+        }
+
+        window.addEventListener('scroll', handleReposition);
+        window.addEventListener('resize', handleReposition);
+      })();
     </script>
   </body>
 </html>

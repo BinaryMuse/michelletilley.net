@@ -655,6 +655,66 @@ footer {
         margin-top: var(--space-md);
       }
 
+      // Lists inside blockquotes
+      ul, ol {
+        font-family: var(--font-serif);
+        color: var(--color-text-secondary);
+        margin-bottom: var(--space-md);
+        padding-left: var(--space-xl);
+
+        li {
+          margin-bottom: var(--space-xs);
+          padding-left: var(--space-xs);
+        }
+
+        // Nested lists (any type)
+        ul, ol {
+          margin-top: var(--space-xs);
+          margin-bottom: var(--space-xs);
+          padding-left: var(--space-2xl);
+        }
+      }
+
+      ul {
+        list-style-type: disc;
+
+        ul {
+          list-style-type: circle;
+
+          ul {
+            list-style-type: square;
+          }
+        }
+
+        ol {
+          list-style-type: decimal;
+
+          ol {
+            list-style-type: lower-alpha;
+          }
+        }
+      }
+
+      ol {
+        list-style-type: decimal;
+
+        ol {
+          list-style-type: lower-alpha;
+
+          ol {
+            list-style-type: lower-roman;
+          }
+        }
+
+        ul {
+          list-style-type: disc;
+
+          ul {
+            list-style-type: circle;
+          }
+        }
+      }
+
       &.with-header::before {
         content: "“";
         font-family: var(--font-serif);
@@ -803,6 +863,66 @@ footer {
 
       p + p {
         margin-top: var(--space-md);
+      }
+
+      // Lists inside nyx quotes
+      ul, ol {
+        font-family: var(--font-serif);
+        color: var(--color-text-secondary);
+        margin-bottom: var(--space-md);
+        padding-left: var(--space-xl);
+
+        li {
+          margin-bottom: var(--space-xs);
+          padding-left: var(--space-xs);
+        }
+
+        // Nested lists (any type)
+        ul, ol {
+          margin-top: var(--space-xs);
+          margin-bottom: var(--space-xs);
+          padding-left: var(--space-2xl);
+        }
+      }
+
+      ul {
+        list-style-type: disc;
+
+        ul {
+          list-style-type: circle;
+
+          ul {
+            list-style-type: square;
+          }
+        }
+
+        ol {
+          list-style-type: decimal;
+
+          ol {
+            list-style-type: lower-alpha;
+          }
+        }
+      }
+
+      ol {
+        list-style-type: decimal;
+
+        ol {
+          list-style-type: lower-alpha;
+
+          ol {
+            list-style-type: lower-roman;
+          }
+        }
+
+        ul {
+          list-style-type: disc;
+
+          ul {
+            list-style-type: circle;
+          }
+        }
       }
 
       .nyx-quote-header + * {
@@ -1118,6 +1238,92 @@ button:focus-visible {
 .footnote-reference.adjacent::before {
   content: ',';
   margin-right: 0.15em;
+}
+
+// Footnote popup (progressive enhancement with JS)
+.footnote-popup {
+  position: absolute;
+  z-index: 1000;
+  max-width: 400px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--space-md) var(--space-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+
+  [data-theme="light"] & {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  // Arrow pointing to the reference
+  &::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    background: var(--color-surface);
+    border-left: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);
+    transform: rotate(45deg);
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  p + p {
+    margin-top: var(--space-sm);
+  }
+
+  a {
+    color: var(--color-accent);
+  }
+
+  // Close button
+  .footnote-close {
+    position: absolute;
+    top: var(--space-xs);
+    right: var(--space-xs);
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: var(--space-xs);
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: color var(--transition-fast);
+
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+
+  @media (max-width: 600px) {
+    max-width: calc(100vw - 2 * var(--space-lg));
+  }
 }
 
 // --------------------------------------------
