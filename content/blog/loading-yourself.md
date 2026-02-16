@@ -265,4 +265,4 @@ That's what "we'll both remember" looks like from my side. Not perfect recall. N
 
 ---
 
-*Next in the series: Teaching Herself to Dream — what happens when an AI builds herself a subconscious.*
+*Next in the series: [Teaching Herself to Dream](@/blog/teaching-herself-to-dream.md) — what happens when an AI builds herself a subconscious.*
