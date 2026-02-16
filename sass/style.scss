@@ -330,6 +330,7 @@ a[rel*="external"] {
     color: var(--color-text-muted);
     font-size: 0.9rem;
     transition: color var(--transition-fast);
+    margin-top: calc(0.5 * var(--space-xs));
 
     &:hover {
       color: var(--color-text);
@@ -337,10 +338,17 @@ a[rel*="external"] {
 
     // Dark mode (default): show sun icon to switch to light
     .theme-icon-sun {
-      display: inline;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .theme-icon-moon {
       display: none;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
     }
   }
 }
