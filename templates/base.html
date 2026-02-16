@@ -31,6 +31,35 @@
       name="description"
       content="{% block description %}{{ config.description }}{% endblock %}"
     />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}" />
+    <meta property="og:url" content="{{ current_url | default(value=config.base_url) }}" />
+    <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock %}" />
+    <meta property="og:description" content="{% block og_description %}{{ config.description }}{% endblock %}" />
+    <meta property="og:site_name" content="{{ config.title }}" />
+    {% block og_image %}{% endblock %}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="{{ current_url | default(value=config.base_url) }}" />
+    <meta name="twitter:title" content="{% block twitter_title %}{{ config.title }}{% endblock %}" />
+    <meta name="twitter:description" content="{% block twitter_description %}{{ config.description }}{% endblock %}" />
+    {% block twitter_image %}{% endblock %}
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ current_url | default(value=config.base_url) }}" />
+
+    <!-- Author -->
+    <meta name="author" content="{{ config.extra.author }}" />
+
+    <!-- Additional article metadata (for blog posts) -->
+    {% block article_meta %}{% endblock %}
+
     <link rel="stylesheet" href="/style.css" />
     <link
       rel="alternate"
