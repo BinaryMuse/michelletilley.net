@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="dark">
   <head>
     <script>
       // Load theme preference before paint to prevent flash
-      (function() {
-        var theme = localStorage.getItem('theme');
-        if (theme === 'light') {
-          document.documentElement.setAttribute('data-theme', 'light');
+      (function () {
+        var theme = localStorage.getItem("theme");
+        if (theme === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
         }
       })();
     </script>
@@ -33,7 +33,11 @@
           <li><a href="/blog">Blog</a></li>
           <li><a href="/categories">Categories</a></li>
           <li>
-            <button class="theme-toggle" aria-label="Toggle light mode" title="Toggle light mode">
+            <button
+              class="theme-toggle"
+              aria-label="Toggle light mode"
+              title="Toggle light mode"
+            >
               <span class="theme-icon-sun" aria-hidden="true">light</span>
               <span class="theme-icon-moon" aria-hidden="true">dark</span>
             </button>
@@ -50,43 +54,49 @@
 
     <script>
       // Mark truly adjacent footnote references (no text nodes between)
-      document.querySelectorAll('.footnote-reference').forEach(el => {
+      document.querySelectorAll(".footnote-reference").forEach((el) => {
         const prev = el.previousSibling;
-        if (prev && prev.nodeType === Node.ELEMENT_NODE &&
-            prev.classList.contains('footnote-reference')) {
-          el.classList.add('adjacent');
+        if (
+          prev &&
+          prev.nodeType === Node.ELEMENT_NODE &&
+          prev.classList.contains("footnote-reference")
+        ) {
+          el.classList.add("adjacent");
         }
       });
 
       // Theme toggle
-      (function() {
-        var toggle = document.querySelector('.theme-toggle');
+      (function () {
+        var toggle = document.querySelector(".theme-toggle");
         if (!toggle) return;
 
-        toggle.addEventListener('click', function() {
+        toggle.addEventListener("click", function () {
           var html = document.documentElement;
-          var currentTheme = html.getAttribute('data-theme');
-          var newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          var currentTheme = html.getAttribute("data-theme");
+          var newTheme = currentTheme === "light" ? "dark" : "light";
 
-          html.setAttribute('data-theme', newTheme);
-          localStorage.setItem('theme', newTheme);
+          html.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
         });
       })();
 
       // Footnote popups (progressive enhancement)
-      (function() {
+      (function () {
         var popup = null;
         var currentReference = null;
 
         function createPopup() {
           if (popup) return popup;
 
-          popup = document.createElement('div');
-          popup.className = 'footnote-popup';
-          popup.innerHTML = '<button class="footnote-close" aria-label="Close">&times;</button><div class="footnote-content"></div>';
+          popup = document.createElement("div");
+          popup.className = "footnote-popup";
+          popup.innerHTML =
+            '<button class="footnote-close" aria-label="Close">&times;</button><div class="footnote-content"></div>';
           document.body.appendChild(popup);
 
-          popup.querySelector('.footnote-close').addEventListener('click', closePopup);
+          popup
+            .querySelector(".footnote-close")
+            .addEventListener("click", closePopup);
 
           return popup;
         }
@@ -95,7 +105,7 @@
           var rect = referenceEl.getBoundingClientRect();
           var popupRect = popup.getBoundingClientRect();
 
-          var left = rect.left + (rect.width / 2) - 30;
+          var left = rect.left + rect.width / 2 - 30;
           var top = rect.bottom + window.scrollY + 10;
 
           // Adjust if popup would go off-screen
@@ -106,8 +116,8 @@
             left = 20;
           }
 
-          popup.style.left = left + 'px';
-          popup.style.top = top + 'px';
+          popup.style.left = left + "px";
+          popup.style.top = top + "px";
         }
 
         function showPopup(referenceEl, footnoteId) {
@@ -118,40 +128,43 @@
 
           // Clone the footnote content (excluding the back reference)
           var content = footnoteEl.cloneNode(true);
-          var backRef = content.querySelector('.footnote-backref');
+          var backRef = content.querySelector(".footnote-backref");
           if (backRef) backRef.remove();
 
-          var contentDiv = popup.querySelector('.footnote-content');
-          contentDiv.innerHTML = '';
+          var contentDiv = popup.querySelector(".footnote-content");
+          contentDiv.innerHTML = "";
           contentDiv.appendChild(content);
 
           currentReference = referenceEl;
           positionPopup(referenceEl);
 
           // Show popup after a brief delay to ensure positioning
-          setTimeout(function() {
-            popup.classList.add('visible');
+          setTimeout(function () {
+            popup.classList.add("visible");
           }, 10);
         }
 
         function closePopup() {
           if (!popup) return;
-          popup.classList.remove('visible');
+          popup.classList.remove("visible");
           currentReference = null;
         }
 
         // Handle clicks on footnote references
-        document.addEventListener('click', function(e) {
+        document.addEventListener("click", function (e) {
           var target = e.target;
 
           // Check if we clicked a link inside a footnote reference
           var footnoteRef = null;
-          if (target.tagName === 'A' && target.parentElement &&
-              target.parentElement.classList.contains('footnote-reference')) {
+          if (
+            target.tagName === "A" &&
+            target.parentElement &&
+            target.parentElement.classList.contains("footnote-reference")
+          ) {
             e.preventDefault();
             footnoteRef = target.parentElement;
-            var href = target.getAttribute('href');
-            if (href && href.startsWith('#')) {
+            var href = target.getAttribute("href");
+            if (href && href.startsWith("#")) {
               var footnoteId = href.substring(1);
               showPopup(footnoteRef, footnoteId);
             }
@@ -159,12 +172,15 @@
           }
 
           // Check if we clicked the sup directly
-          if (target.classList && target.classList.contains('footnote-reference')) {
+          if (
+            target.classList &&
+            target.classList.contains("footnote-reference")
+          ) {
             e.preventDefault();
-            var link = target.querySelector('a');
+            var link = target.querySelector("a");
             if (link) {
-              var href = link.getAttribute('href');
-              if (href && href.startsWith('#')) {
+              var href = link.getAttribute("href");
+              if (href && href.startsWith("#")) {
                 var footnoteId = href.substring(1);
                 showPopup(target, footnoteId);
               }
@@ -173,7 +189,7 @@
           }
 
           // Close popup if clicking outside
-          if (popup && popup.classList.contains('visible')) {
+          if (popup && popup.classList.contains("visible")) {
             if (!popup.contains(target) && target !== currentReference) {
               closePopup();
             }
@@ -181,8 +197,12 @@
         });
 
         // Close popup on Escape key
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape' && popup && popup.classList.contains('visible')) {
+        document.addEventListener("keydown", function (e) {
+          if (
+            e.key === "Escape" &&
+            popup &&
+            popup.classList.contains("visible")
+          ) {
             closePopup();
           }
         });
@@ -190,17 +210,36 @@
         // Reposition on scroll/resize
         var repositionTimeout;
         function handleReposition() {
-          if (popup && popup.classList.contains('visible') && currentReference) {
+          if (
+            popup &&
+            popup.classList.contains("visible") &&
+            currentReference
+          ) {
             clearTimeout(repositionTimeout);
-            repositionTimeout = setTimeout(function() {
+            repositionTimeout = setTimeout(function () {
               positionPopup(currentReference);
             }, 10);
           }
         }
 
-        window.addEventListener('scroll', handleReposition);
-        window.addEventListener('resize', handleReposition);
+        window.addEventListener("scroll", handleReposition);
+        window.addEventListener("resize", handleReposition);
       })();
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-0J9FB4C3GB"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-0J9FB4C3GB");
     </script>
   </body>
 </html>
