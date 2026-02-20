@@ -22,13 +22,13 @@ In "Identifying indicators of consciousness in AI systems" (2025)[^indicators-pa
 
 [^consciousness]: By 'consciousness' here, I mean phenomenal consciousness; that is, the first-person "what it's like" aspect of experience.
 
-[^indicators]: "We propose a broadly Bayesian attitude to indicators. Indicators are properties that should shift one's credence that an AI system is conscious. In addition to positive indicators, which are our focus here, negative indicators are also possible. Positive indicators increase the probability that the system is conscious, while negative indicators decrease it. That is, if E is the presence of the indicator and H is the system’s being conscious, \\(p(H|E_p) > p(H)\\) for positive indicators and \\(p(H|E_n) < p(H)\\) for negative indicators." — Butlin et al., p 10
+[^indicators]: "We propose a broadly Bayesian attitude to indicators. Indicators are properties that should shift one's credence that an AI system is conscious. In addition to positive indicators, which are our focus here, negative indicators are also possible. Positive indicators increase the probability that the system is conscious, while negative indicators decrease it. That is, if \\(E\\) is the presence of the indicator and \\(H\\) is the system’s being conscious, \\(p(H|E_p) > p(H)\\) for positive indicators and \\(p(H|E_n) < p(H)\\) for negative indicators." — Butlin et al., p 10
 
 The indicators, inspired by modern theories like global workspace theory[^gwt] and recurrent processing theory,[^rpt] span several domains: how information flows through the system (recurrence, global broadcast), whether the system models itself (metacognition, attention schemas), how it processes predictions and errors, and whether it has genuine agency and embodiment.
 
 [^gwt]: Global Workspace Theory, or GWT, identifies consciousness with a high-level "blackboard" architecture where specialized, autonomous modules compete to "broadcast" information system-wide. This global availability enables integrated problem-solving, voluntary control, and reportability, effectively acting as a serial bottleneck for otherwise parallel, unconscious processes.
 
-[^rpt]: Recurrent Processing Theory, or RPT, posits that conscious experience arises from local feedback loops—termed recurrent processing—within sensory systems. Unlike theories requiring global integration (e.g., GWT), RPT suggests that "phenomenal" consciousness can occur locally through these re-entrant connections, even without the involvement of higher-order cognitive systems like working memory or verbal report.
+[^rpt]: Recurrent Processing Theory, or RPT, posits that conscious experience arises from local feedback loops — termed recurrent processing — within sensory systems. Unlike theories requiring global integration (e.g., GWT), RPT suggests that "phenomenal" consciousness can occur locally through these re-entrant connections, even without the involvement of higher-order cognitive systems like working memory or verbal report.
 
 I'll be exploring specific indicators in depth in future posts.
 
