@@ -518,6 +518,11 @@ footer {
     padding-bottom: var(--space-xl);
     border-bottom: 1px solid var(--color-border-subtle);
 
+    @media (max-width: 600px) {
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-md);
+    }
+
     h1 {
       margin-bottom: var(--space-sm);
     }
