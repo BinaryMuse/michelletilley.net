@@ -420,7 +420,19 @@ footer {
 // Recent Posts Section
 // --------------------------------------------
 
-.recent-posts {
+.recent-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+.recent-posts,
+.recent-notes {
   h2 {
     font-size: 0.85rem;
     font-family: var(--font-sans);
@@ -429,7 +441,48 @@ footer {
     letter-spacing: 0.05em;
     color: var(--color-text-muted);
     margin-top: 0;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-md);
+  }
+}
+
+.recent-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-sm);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    a {
+      color: var(--color-text);
+      background: none;
+      font-weight: 500;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &:hover {
+        color: var(--color-accent);
+      }
+    }
+
+    time {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+    }
   }
 }
 

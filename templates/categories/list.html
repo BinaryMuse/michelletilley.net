@@ -1,9 +1,6 @@
-{% extends "base.html" %}
-
-{% block title %}Categories | {{ config.title }}{% endblock %}
-
-{% block content %}
-<h1>Categories</h1>
+{% extends "base.html" %} {% block title %}Categories | {{ config.title }}{%
+endblock %} {% block content %}
+<h1 style="margin-bottom: var(--space-xl)">Categories</h1>
 
 <ul class="category-list">
   {% for term in terms %}

@@ -8,26 +8,33 @@
   </p>
 </section>
 
-<section class="recent-posts">
-  <h2>Recent Posts</h2>
-  {% set blog = get_section(path="blog/_index.md") %} {% for page in blog.pages
-  | slice(end=5) %}
-  <article class="post-preview">
-    <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
-    <time datetime="{{ page.date }}"
-      >{{ page.date | date(format="%B %d, %Y") }}</time
-    >
-    {% if page.taxonomies.categories %}
-    <span class="categories">
-      {% for cat in page.taxonomies.categories %}
-      <a href="/categories/{{ cat | slugify }}">{{ cat }}</a>
+<div class="recent-sections">
+  <section class="recent-posts">
+    <h2>Recent Posts</h2>
+    {% set blog = get_section(path="blog/_index.md") %}
+    <ul class="recent-list">
+      {% for page in blog.pages | slice(end=5) %}
+      <li>
+        <a href="{{ page.permalink }}">{{ page.title }}</a>
+        <time datetime="{{ page.date }}">{{ page.date | date(format="%b %d") }}</time>
+      </li>
       {% endfor %}
-    </span>
-    {% endif %} {% if page.description %}
-    <p>{{ page.description | safe }}</p>
-    {% endif %}
-  </article>
-  {% endfor %}
-  <p><a href="/blog" class="view-all">View all posts &rarr;</a></p>
-</section>
+    </ul>
+    <p><a href="/blog" class="view-all">View all posts &rarr;</a></p>
+  </section>
+
+  <section class="recent-notes">
+    <h2>Recent Notes</h2>
+    {% set notes = get_section(path="notes/_index.md") %}
+    <ul class="recent-list">
+      {% for page in notes.pages | slice(end=5) %}
+      <li>
+        <a href="{{ page.permalink }}">{{ page.title }}</a>
+        <time datetime="{{ page.date }}">{{ page.date | date(format="%b %d") }}</time>
+      </li>
+      {% endfor %}
+    </ul>
+    <p><a href="/notes" class="view-all">View all notes &rarr;</a></p>
+  </section>
+</div>
 {% endblock %}
