@@ -14,7 +14,7 @@ In "Identifying indicators of consciousness in AI systems" (2025)[^indicators-pa
 
 {% quote(header="Butlin et al., 2025, p. 3") %}
 
-“As we interpret them, the theories we rely on to derive indicators for consciousness share a commitment to computational functionalism. That is, they agree that implementing computations of the right kind is necessary and sufficient for consciousness. According to computational functionalism, two systems that are similar at the relevant algorithmic level of description will also be similar with respect to consciousness.”
+As we interpret them, the theories we rely on to derive indicators for consciousness share a commitment to computational functionalism. That is, they agree that implementing computations of the right kind is necessary and sufficient for consciousness. According to computational functionalism, two systems that are similar at the relevant algorithmic level of description will also be similar with respect to consciousness.
 
 {% end %}
 
