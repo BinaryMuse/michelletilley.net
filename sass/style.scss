@@ -1078,7 +1078,23 @@ footer {
       max-width: 100%;
       height: auto;
       border-radius: 6px;
-      margin: var(--space-lg) 0;
+      margin-top: var(--space-lg);
+    }
+
+    figure {
+      margin-bottom: var(--space-lg) 0;
+
+      figcaption, figcaption p {
+        font-size: 0.90rem;
+        color: var(--color-text-secondary);
+        margin-top: var(--space-xs);
+        text-align: center;
+      }
+
+      figcaption {
+        margin-bottom: var(--space-xl);
+      }
+
     }
 
     // Tables
