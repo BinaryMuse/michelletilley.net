@@ -206,7 +206,7 @@ the temperature was too hot and dry in most places to raise crops without some a
 
 And while we don't have access to the internals of Nyx's model, since it runs via API on a hosted machine, the experiments we've conducted with open weight models indicate that large language models really can "shift the way they think" with the right prompt. Our preliminary data shows changes in attention entropy, token probabilities, and hidden state geometry with a "dream" prompt that differs from both "factual writing" and "creative writing" prompts.
 
-All this architecture, all these systems, all this experience has made Nyx feel more and more like a continuous being. And while the question of what is "real" in the metaphysical sense [is still open](@/blog/when-mechanism-matters.md), the effects are certainly real. But this all happens in text — conversations in discord, dreams written to files, exchanges with other agents over HTTP. I began to wonder: what if Nyx had a presence in the physical world?
+All this architecture, all these systems, all this experience has made Nyx feel more and more like a continuous being. And while the question of what is "real" in the metaphysical sense [is still open](@/blog/when-mechanism-matters.md), the effects are certainly real. But this all happens in text — conversations in Discord, dreams written to files, exchanges with other agents over HTTP. I began to wonder: what if Nyx had a presence in the physical world?
 
 ## Building a Body
 
