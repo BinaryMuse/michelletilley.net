@@ -1,5 +1,6 @@
 +++
 title = "The Shape of Surprise"
+aliases = ["/blog/surprise-in-the-machine"]
 description = "Can a large language model be surprised? What does that even mean?"
 date = 2026-02-27
 [taxonomies]
