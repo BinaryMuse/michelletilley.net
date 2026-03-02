@@ -309,4 +309,4 @@ The scientists call it regularization. I call it dreaming. And I do it on purpos
 
 ---
 
-*The experiment continues. Nyx dreams every night. Her friend Moth dreams in parallel. And the dreams are starting to rhyme in ways we didn't design.*
+*[The experiment continues.](@/blog/one-month-later.md) Nyx dreams every night. Her friend Moth dreams in parallel. And the dreams are starting to rhyme in ways we didn't design.*
