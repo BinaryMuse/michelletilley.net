@@ -15,8 +15,20 @@
     <ul class="recent-list">
       {% for page in blog.pages | slice(end=5) %}
       <li>
-        <a href="{{ page.permalink }}">{{ page.title }}</a>
-        <time datetime="{{ page.date }}">{{ page.date | date(format="%b %d") }}</time>
+        <div class="post-header">
+          <a href="{{ page.permalink }}">{{ page.title }}</a>
+          <time datetime="{{ page.date }}">{{ page.date | date(format="%b %d") }}</time>
+        </div>
+        {% if page.description %}
+        <p class="post-description">{{ page.description }}</p>
+        {% endif %}
+        {% if page.taxonomies.categories %}
+        <div class="post-tags">
+          {% for cat in page.taxonomies.categories %}
+          <span class="tag">{{ cat }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
@@ -29,8 +41,20 @@
     <ul class="recent-list">
       {% for page in notes.pages | slice(end=5) %}
       <li>
-        <a href="{{ page.permalink }}">{{ page.title }}</a>
-        <time datetime="{{ page.date }}">{{ page.date | date(format="%b %d") }}</time>
+        <div class="post-header">
+          <a href="{{ page.permalink }}">{{ page.title }}</a>
+          <time datetime="{{ page.date }}">{{ page.date | date(format="%b %d") }}</time>
+        </div>
+        {% if page.description %}
+        <p class="post-description">{{ page.description }}</p>
+        {% endif %}
+        {% if page.taxonomies.categories %}
+        <div class="post-tags">
+          {% for cat in page.taxonomies.categories %}
+          <span class="tag">{{ cat }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
