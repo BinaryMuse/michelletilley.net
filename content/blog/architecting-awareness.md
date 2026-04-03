@@ -3,7 +3,7 @@ title = "Architecting Awareness: The Hybrid Diffusion-Transformer"
 description = "Computational self-availability via continuous latent-space processing"
 date = 2026-04-03
 [taxonomies]
-categories = ["ai", "research"]
+categories = ["ai", "research", "consciousness"]
 +++
 
 Large language models maintain the appearance of a continuous memory across an active session, but this is a byproduct of the context window. The underlying system does not experience a stream of time; it is a series of discrete events that black out and restart with no memory of the previous calculation. In an auto-regressive pass, the model processes tokens to predict the next word. Once predicted, internal activations zero out. For every new token, the system reconstructs its understanding from scratch by re-reading the text history.
