@@ -412,6 +412,78 @@
         window.addEventListener("scroll", handleReposition);
         window.addEventListener("resize", handleReposition);
       })();
+
+      // Image lightbox (progressive enhancement)
+      (function () {
+        var lightbox = null;
+
+        function createLightbox() {
+          if (lightbox) return lightbox;
+
+          lightbox = document.createElement("div");
+          lightbox.className = "image-lightbox";
+          lightbox.innerHTML =
+            '<button class="lightbox-close" aria-label="Close">&times;</button><figure><img /><figcaption></figcaption></figure>';
+          document.body.appendChild(lightbox);
+
+          lightbox.addEventListener("click", function (e) {
+            if (e.target === lightbox || e.target.classList.contains("lightbox-close")) {
+              closeLightbox();
+            }
+          });
+
+          return lightbox;
+        }
+
+        function openLightbox(src, alt, captionHTML) {
+          createLightbox();
+          var img = lightbox.querySelector("img");
+          img.src = src;
+          img.alt = alt || "";
+          var caption = lightbox.querySelector("figcaption");
+          if (captionHTML) {
+            caption.innerHTML = captionHTML;
+            caption.style.display = "";
+          } else {
+            caption.innerHTML = "";
+            caption.style.display = "none";
+          }
+          document.body.style.overflow = "hidden";
+          // Force layout before adding visible class for transition
+          lightbox.offsetHeight;
+          lightbox.classList.add("visible");
+        }
+
+        function closeLightbox() {
+          if (!lightbox) return;
+          lightbox.classList.remove("visible");
+          document.body.style.overflow = "";
+        }
+
+        // Intercept clicks on figure > a > img
+        document.addEventListener("click", function (e) {
+          var img = e.target;
+          if (img.tagName !== "IMG") return;
+          var link = img.closest("a");
+          if (!link) return;
+          var figure = link.closest("figure");
+          if (!figure) return;
+
+          // Only handle links that point to an image
+          var href = link.getAttribute("href");
+          if (!href || !href.match(/\.(png|jpe?g|gif|webp|svg|avif)(\?|$)/i)) return;
+
+          e.preventDefault();
+          var captionEl = figure.querySelector("figcaption");
+          openLightbox(href, img.alt, captionEl ? captionEl.innerHTML : "");
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && lightbox && lightbox.classList.contains("visible")) {
+            closeLightbox();
+          }
+        });
+      })();
     </script>
   </body>
 </html>
