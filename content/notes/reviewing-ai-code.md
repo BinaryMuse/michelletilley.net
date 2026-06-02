@@ -78,7 +78,7 @@ To kick off the review, just run `/plannotator-review`. This opens a browser win
   <a href="/images/plannotator-review-01.png" target="_blank"><img src="/images/plannotator-review-01.png" alt="Code Review with Plannotator" /></a>
   <figcaption>
 
-StageReview chapter detail, with lines of code relevant to the change called out
+Reviewing code with the Plannotator review tool
 
   </figcaption>
 </figure>
