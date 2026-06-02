@@ -117,6 +117,8 @@ question (blocking): Could this be simplified?
 Please address this feedback.
 ````
 
+It's worth noting that Plannotator's review tool has a plethora of other options and features; I don't use all of them, but I encourage you to explore the tool and see what works best for you.
+
 ## Conclusion
 
 With these two tools, I find it much easier to review AI generated code, even when it's solving complex problems. The walkthrough provided by StageReview helps me understand the high-level changes and the rationale behind them, while Plannotator allows me to dive into the details and provide specific feedback, without needing to bounce back and forth between GitHub and my agent. If you're looking to lower the cognitive burden of reviewing AI generated code, I recommend giving this combination a try!
