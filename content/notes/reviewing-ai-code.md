@@ -100,7 +100,7 @@ Suggested code:
 
 ```rust
 #[cfg(all(feature = "pty-proxy", not(unix)))]
-fn run_pty_proxy(\_proxy: atuin_pty_proxy::PtyProxy) {
+fn run_pty_proxy(_proxy: atuin_pty_proxy::PtyProxy) {
     eprintln!("atuin pty-proxy currently only supports unix platforms");
     std::process::exit(1);
 }
